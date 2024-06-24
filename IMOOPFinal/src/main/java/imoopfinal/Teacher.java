@@ -201,13 +201,22 @@ public class Teacher extends JFrame {
         gbc.gridwidth = 1;
         gbc.weightx = 0.25;
         panel.add(studentFilterComboBox, gbc);
+        
+        courseFilterComboBox = new JComboBox<>();
+        courseFilterComboBox.addItem("All Courses");
+        courseFilter();
+        gbc.gridx = 1;
+        gbc.gridy = 7;
+        gbc.gridwidth = 1;
+        gbc.weightx = 0.25;
+        panel.add(courseFilterComboBox, gbc);
 
         yearFilterComboBox = new JComboBox<>();
         yearFilterComboBox.addItem("All Years");
         for (int year = 2024; year <= 2030; year++) {
             yearFilterComboBox.addItem(String.valueOf(year));
         }
-        gbc.gridx = 1;
+        gbc.gridx = 2;
         gbc.gridy = 7;
         gbc.gridwidth = 1;
         gbc.weightx = 0.25;
@@ -218,20 +227,11 @@ public class Teacher extends JFrame {
         for (String month : months) {
             monthFilterComboBox.addItem(month);
         }
-        gbc.gridx = 2;
-        gbc.gridy = 7;
-        gbc.gridwidth = 1;
-        gbc.weightx = 0.25;
-        panel.add(monthFilterComboBox, gbc);
-
-        courseFilterComboBox = new JComboBox<>();
-        courseFilterComboBox.addItem("All Courses");
-        courseFilter();
         gbc.gridx = 3;
         gbc.gridy = 7;
         gbc.gridwidth = 1;
         gbc.weightx = 0.25;
-        panel.add(courseFilterComboBox, gbc);
+        panel.add(monthFilterComboBox, gbc);
 
         appointmentTableModel = new DefaultTableModel(new Object[]{"Student", "Course", "Date", "Time"}, 0);
         appointmentTable = new JTable(appointmentTableModel);
